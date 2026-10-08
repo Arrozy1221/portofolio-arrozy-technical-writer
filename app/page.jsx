@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
+import ClientLogos from '../components/ClientLogos';
 import Metrics from '../components/Metrics';
 import DocsShowcase from '../components/DocsShowcase';
 import DocumentationLifecycle from '../components/DocumentationLifecycle';
@@ -65,6 +66,7 @@ export default function Home() {
       />
       <main className="flex-1">
         <Hero lang={lang} content={content} />
+        <ClientLogos lang={lang} />
         <Metrics lang={lang} content={content} />
         <DocsShowcase lang={lang} content={content} />
         <DocumentationLifecycle lang={lang} content={content} />
