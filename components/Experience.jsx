@@ -1,86 +1,85 @@
 'use client';
 
-import { Building2, Calendar, MapPin, CheckCircle2 } from 'lucide-react';
-import Image from 'next/image';
+import { Building2, Monitor, Users, Calendar } from 'lucide-react';
+
+const expIcons = {
+  building: Building2,
+  monitor: Monitor,
+  users: Users,
+};
 
 export default function Experience({ lang, content }) {
   const t = content[lang].experience;
 
   return (
-    <section id="experience" className="py-16 md:py-24 border-b border-zinc-200 dark:border-zinc-800/80">
+    <section id="experience" className="py-20 bg-slate-50/50 border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mb-12">
-          <p className="text-xs font-mono font-semibold tracking-wider uppercase text-sky-600 dark:text-sky-400 mb-2">
-            {t.eyebrow}
-          </p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
-            {t.title}
-          </h2>
-          <p className="mt-3 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            {t.subtitle}
-          </p>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-wider text-blue-600 block mb-2">
+              {t.eyebrow}
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              {t.title}
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-slate-600">
+              {t.subtitle}
+            </p>
+          </div>
+
+          <a
+            href="#experience"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 hover:bg-blue-100 transition whitespace-nowrap self-start md:self-auto"
+          >
+            <span>{t.viewAll}</span>
+          </a>
         </div>
 
-        {/* Experience Timeline */}
-        <div className="space-y-8">
-          {t.items.map((item, idx) => (
-            <div
-              key={idx}
-              className="p-6 sm:p-8 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm space-y-4"
-            >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-zinc-200 dark:border-zinc-800/80">
-                <div className="space-y-1">
-                  <h3 className="text-lg sm:text-xl font-bold text-zinc-900 dark:text-white">
-                    {item.role}
-                  </h3>
-                  <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-medium text-sky-600 dark:text-sky-400">
-                    <span>{item.company}</span>
-                    <span className="text-zinc-400">•</span>
-                    <span className="text-zinc-500 dark:text-zinc-400 font-normal">
-                      {item.type}
-                    </span>
+        {/* 3 Experience Cards in a Row */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {t.items.map((item, idx) => {
+            const Icon = expIcons[item.icon] || Building2;
+            return (
+              <div
+                key={idx}
+                className="p-6 rounded-2xl border border-slate-200/90 bg-white shadow-sm hover:shadow-lg hover:border-blue-300 transition-all space-y-4 flex flex-col justify-between group"
+              >
+                <div className="space-y-3">
+                  {/* Card Header */}
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <Icon className="w-6 h-6" />
                   </div>
-                </div>
 
-                <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-zinc-500 dark:text-zinc-400">
-                  <span className="flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5" />
-                    {item.period}
-                  </span>
-                  <span>•</span>
-                  <span className="flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5" />
-                    {item.location}
-                  </span>
-                </div>
-              </div>
-
-              <p className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                {item.summary}
-              </p>
-
-              <div className="space-y-2 pt-1">
-                {item.points.map((pt, pIdx) => (
-                  <div key={pIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
-                    <CheckCircle2 className="w-4 h-4 text-sky-500 shrink-0 mt-0.5" />
-                    <span>{pt}</span>
+                  <div>
+                    <h3 className="font-bold text-base text-slate-900 leading-snug group-hover:text-blue-600 transition-colors">
+                      {item.role}
+                    </h3>
+                    <p className="text-xs font-semibold text-blue-600 mt-1">
+                      {item.company}
+                    </p>
+                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-slate-400 mt-1">
+                      <Calendar className="w-3 h-3" />
+                      <span>{item.period}</span>
+                    </div>
                   </div>
-                ))}
-              </div>
 
-              <div className="flex flex-wrap gap-2 pt-3 border-t border-zinc-100 dark:border-zinc-800/60">
-                {item.tags.map((tag, tIdx) => (
-                  <span
-                    key={tIdx}
-                    className="px-2.5 py-1 rounded text-xs font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700/60"
-                  >
-                    {tag}
-                  </span>
-                ))}
+                  {/* Bullet Points */}
+                  <ul className="space-y-2 pt-2 border-t border-slate-100">
+                    {item.points.map((pt, pIdx) => (
+                      <li
+                        key={pIdx}
+                        className="text-xs text-slate-600 leading-relaxed flex items-start gap-2"
+                      >
+                        <span className="text-blue-500 font-bold shrink-0">•</span>
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

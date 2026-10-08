@@ -1,61 +1,75 @@
 'use client';
 
-import { Check, ShieldCheck, Terminal, BookOpen, Layers, Code2 } from 'lucide-react';
+import { FileText, Wrench, Code2, Users, Check } from 'lucide-react';
 
-const categoryIcons = [BookOpen, Layers, Terminal, Code2];
+const skillCategoryIcons = {
+  file: FileText,
+  tool: Wrench,
+  code: Code2,
+  users: Users,
+};
 
 export default function SkillsMatrix({ lang, content }) {
   const t = content[lang].skills;
 
   return (
-    <section id="skills" className="py-16 md:py-24 border-b border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30">
+    <section id="skills" className="py-20 bg-white border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mb-12">
-          <p className="text-xs font-mono font-semibold tracking-wider uppercase text-sky-600 dark:text-sky-400 mb-2">
-            {t.eyebrow}
-          </p>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
-            {t.title}
-          </h2>
-          <p className="mt-3 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            {t.subtitle}
-          </p>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-wider text-blue-600 block mb-2">
+              {t.eyebrow}
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              {t.title}
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-slate-600">
+              {t.subtitle}
+            </p>
+          </div>
+
+          <a
+            href="#skills"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 hover:bg-blue-100 transition whitespace-nowrap self-start md:self-auto"
+          >
+            <span>{t.viewAll}</span>
+          </a>
         </div>
 
-        {/* Skills Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
+        {/* 4 Cards in 2x2 Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {t.groups.map((group, idx) => {
-            const Icon = categoryIcons[idx % categoryIcons.length];
+            const Icon = skillCategoryIcons[group.icon] || FileText;
             return (
               <div
                 key={idx}
-                className="p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm space-y-4"
+                className="p-6 rounded-2xl border border-slate-200/90 bg-white shadow-sm hover:shadow-md hover:border-blue-300 transition-all space-y-4 group"
               >
-                <div className="flex items-center gap-3 pb-3 border-b border-zinc-200 dark:border-zinc-800/80">
-                  <div className="p-2 rounded-lg bg-sky-50 dark:bg-sky-950/60 border border-sky-100 dark:border-sky-900/50 text-sky-600 dark:text-sky-400">
-                    <Icon className="w-4 h-4" />
+                {/* Header */}
+                <div className="flex items-center gap-3 pb-3 border-b border-slate-100">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="font-bold text-base text-zinc-900 dark:text-white">
-                    {group.category}
+                  <h3 className="font-bold text-base text-slate-900">
+                    {group.title}
                   </h3>
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-2.5">
-                  {group.items.map((skill, sIdx) => (
-                    <div
-                      key={sIdx}
-                      className="p-2.5 rounded-lg border border-zinc-100 dark:border-zinc-800/60 bg-zinc-50/60 dark:bg-zinc-950/40 flex items-center justify-between text-xs font-mono"
+                {/* Items Checklist */}
+                <ul className="space-y-2.5">
+                  {group.items.map((item, iIdx) => (
+                    <li
+                      key={iIdx}
+                      className="flex items-center gap-2.5 text-xs text-slate-700 font-medium"
                     >
-                      <span className="font-sans text-xs text-zinc-800 dark:text-zinc-200 font-medium">
-                        {skill.name}
-                      </span>
-                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-200/60 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">
-                        {skill.level}
-                      </span>
-                    </div>
+                      <div className="w-4 h-4 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                        <Check className="w-3 h-3 stroke-[3]" />
+                      </div>
+                      <span>{item}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             );
           })}
