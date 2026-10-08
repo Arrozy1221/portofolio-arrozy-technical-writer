@@ -124,27 +124,27 @@ export default function ProjectDetailClient({ project, nextProject, prevProject 
             )}
           </div>
 
-          <div className="flex items-center gap-3">
-            {project.pdfUrl && (
-              <a
-                href={project.pdfUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-white text-slate-900 hover:bg-blue-50 transition shadow-lg"
-              >
-                <BookOpen className="w-4 h-4 text-blue-600" />
-                <span>Buka / Unduh File PDF Resmi</span>
-              </a>
-            )}
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              onClick={() => {
+                setActiveTab('sample');
+                const el = document.getElementById('tab-content-area');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-white text-slate-900 hover:bg-blue-50 transition shadow-lg cursor-pointer"
+            >
+              <BookOpen className="w-4 h-4 text-blue-600" />
+              <span>Inspeksi Cuplikan Sampel Tersanitasi</span>
+            </button>
 
             <a
-              href={`https://wa.me/6281298023537?text=Halo%20Arrozy,%20saya%20tertarik%20dengan%20proyek%20${encodeURIComponent(project.title.id)}`}
+              href={`https://wa.me/6281298023537?text=Halo%20Arrozy,%20saya%20tertarik%20dengan%20studi%20kasus%20dokumentasi%20${encodeURIComponent(project.title.id)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-white/20 hover:bg-white/30 text-white backdrop-blur-md border border-white/30 transition"
             >
               <MessageSquare className="w-3.5 h-3.5" />
-              <span>Diskusi Teknis</span>
+              <span>Diskusi Teknis via WhatsApp</span>
             </a>
           </div>
         </div>
@@ -226,10 +226,10 @@ export default function ProjectDetailClient({ project, nextProject, prevProject 
 
       {/* TAB 1: LEMBAR SAMPEL DOKUMEN (A4 FORMAT) */}
       {activeTab === 'sample' && project.samplePage && (
-        <div className="space-y-6">
+        <div id="tab-content-area" className="space-y-6 scroll-mt-24">
           <div className="flex items-center justify-between text-xs text-slate-500">
             <span className="font-semibold text-slate-700">
-              Pratinjau Resmi Format Penulisan Teknis
+              Pratinjau Format Penulisan Teknis (Studi Kasus Tersanitasi)
             </span>
             <span className="font-mono bg-blue-50 text-blue-700 border border-blue-200 px-3 py-1 rounded-full font-bold">
               {project.samplePage.pageNumber}
@@ -250,11 +250,24 @@ export default function ProjectDetailClient({ project, nextProject, prevProject 
               </div>
               <div className="text-right">
                 <span className="text-[10px] font-mono uppercase bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded font-bold">
-                  Quality Audit: PASSED
+                  Audit Mutu: PASSED • Case Study Tersanitasi
                 </span>
                 <span className="text-[11px] font-mono text-slate-400 block mt-0.5">
                   {project.documentMeta?.effectiveDate}
                 </span>
+              </div>
+            </div>
+
+            {/* Sanitization Notice Banner */}
+            <div className="p-4 rounded-2xl bg-amber-50/90 border border-amber-200/80 text-amber-900 text-xs flex items-start gap-3">
+              <ShieldCheck className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+              <div className="space-y-1">
+                <span className="font-bold block uppercase tracking-wider text-[11px] text-amber-800">
+                  Transparansi &amp; Kepatuhan Kerahasiaan Informasi (Sanitized Case Study)
+                </span>
+                <p className="text-amber-800/90 leading-relaxed text-[11px]">
+                  Seluruh data sensitif, konfigurasi server, kredensial, serta nama skema dan tabel basis data internal pada dokumen ini telah disanitasi (redacted &amp; pseudonymized) semata untuk keperluan pembuktian kompetensi teknis penulisan dokumen (Technical Writing) dan mematuhi etika kerahasiaan institusi klien.
+                </p>
               </div>
             </div>
 
@@ -286,10 +299,10 @@ export default function ProjectDetailClient({ project, nextProject, prevProject 
               </div>
             )}
 
-            {/* Procedural Steps */}
+            {/* Procedural Steps / Schema Definition */}
             <div className="space-y-4">
               <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900">
-                Prosedur Pelaksanaan Bertahap:
+                {project.samplePage.stepsTitle || 'Prosedur Pelaksanaan Bertahap:'}
               </h3>
 
               <div className="space-y-3">

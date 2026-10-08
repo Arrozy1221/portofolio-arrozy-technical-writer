@@ -16,9 +16,10 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://portofolio-technical-writer.vercel.app'),
   title: 'Arrozy Adi Falaqi, S.Kom. — Technical Writer & Systems Documentation Specialist',
   description:
-    'Portofolio Technical Writer profesional: spesialis User Manual, Kamus Data, Database ERD, Skenario UAT, dan SOP Digital untuk sistem kementerian & enterprise.',
+    'Portofolio Technical Writer profesional: spesialis User Manual, Kamus Data Relasional, Skenario UAT, dan SOP Digital untuk sistem kementerian & enterprise IT.',
   keywords: [
     'Technical Writer',
     'User Manual',
@@ -31,15 +32,31 @@ export const metadata = {
     'Bandung',
     'Software Documentation',
   ],
-  authors: [{ name: 'Arrozy Adi Falaqi' }],
-  creator: 'Arrozy Adi Falaqi',
+  authors: [{ name: 'Arrozy Adi Falaqi, S.Kom.' }],
+  creator: 'Arrozy Adi Falaqi, S.Kom.',
   openGraph: {
     title: 'Arrozy Adi Falaqi, S.Kom. — Technical Writer & Systems Documentation Specialist',
     description:
-      'Spesialis User Manual 240+ hlm, Kamus Data relasional, Skenario UAT, dan SOP Digital untuk 10+ platform kementerian dan enterprise.',
-    type: 'website',
-    locale: 'id_ID',
+      'Portofolio Technical Writer profesional: spesialis User Manual 240+ hlm, Kamus Data relasional, Skenario UAT, dan SOP Digital untuk 10+ platform kementerian dan enterprise.',
+    url: 'https://portofolio-technical-writer.vercel.app',
     siteName: 'Arrozy Technical Writer Portfolio',
+    locale: 'id_ID',
+    type: 'website',
+    images: [
+      {
+        url: '/images/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Arrozy Adi Falaqi, S.Kom. — Technical Writer Portfolio',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Arrozy Adi Falaqi, S.Kom. — Technical Writer & Systems Documentation Specialist',
+    description:
+      'Portofolio Technical Writer profesional: spesialis User Manual, Kamus Data, Skenario UAT, dan SOP Digital sistem kementerian.',
+    images: ['/images/og-image.png'],
   },
 };
 

@@ -110,26 +110,31 @@ export default function ProjectDetailPage({ params }) {
 
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-10 border-t border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <div>
-            © 2026 Arrozy Adi Falaqi, S.Kom. • Technical Writer &amp; Systems Documentation Specialist
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 text-xs text-slate-400">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              © 2026 Arrozy Adi Falaqi, S.Kom. • Technical Writer &amp; Systems Documentation Specialist
+            </div>
+            <div className="flex items-center gap-4">
+              <Link href="/" className="hover:text-white transition">
+                Beranda
+              </Link>
+              <Link href="/#projects" className="hover:text-white transition">
+                Semua Dokumen
+              </Link>
+              <a
+                href="https://www.linkedin.com/in/arrozy-adi-falaqi-6a25ba14a"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition"
+              >
+                LinkedIn
+              </a>
+            </div>
           </div>
-          <div className="flex items-center gap-4">
-            <Link href="/" className="hover:text-white transition">
-              Beranda
-            </Link>
-            <Link href="/#projects" className="hover:text-white transition">
-              Semua Dokumen
-            </Link>
-            <a
-              href="https://www.linkedin.com/in/arrozy-adi-falaqi-6a25ba14a"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition"
-            >
-              LinkedIn
-            </a>
-          </div>
+          <p className="text-[11px] text-slate-500 text-center sm:text-left border-t border-slate-800/80 pt-3">
+            Disclaimer: Seluruh cuplikan dokumen teknis dan artefak arsitektur pada situs ini disajikan secara tersanitasi (sanitized sample) semata untuk evaluasi kompetensi profesional Technical Writer. Hak kekayaan intelektual sistem tetap berada pada instansi/klien terkait.
+          </p>
         </div>
       </footer>
     </div>

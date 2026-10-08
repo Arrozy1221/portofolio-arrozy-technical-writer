@@ -29,7 +29,7 @@ export default function Experience({ lang, content }) {
           </div>
 
           <a
-            href="#experience"
+            href="#projects"
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-200 hover:bg-blue-100 transition whitespace-nowrap self-start md:self-auto"
           >
             <span>{t.viewAll}</span>

@@ -53,15 +53,32 @@ export default function Navbar({ lang, setLang, content }) {
 
         {/* Right CTA Area */}
         <div className="flex items-center gap-3">
-          {/* Language Toggle */}
-          <button
-            onClick={toggleLanguage}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-700 transition"
-            title="Switch Language"
-          >
-            <Globe className="w-3.5 h-3.5 text-blue-600" />
-            <span className="uppercase">{lang}</span>
-          </button>
+          {/* Segmented Language Toggle (ID / EN) */}
+          <div className="flex items-center rounded-lg border border-slate-200 bg-slate-50 p-0.5 text-xs font-bold text-slate-600">
+            <button
+              onClick={() => setLang('id')}
+              className={`px-2.5 py-1 rounded-md transition ${
+                lang === 'id'
+                  ? 'bg-white text-blue-600 shadow-sm font-extrabold'
+                  : 'hover:text-slate-900 text-slate-500'
+              }`}
+              title="Bahasa Indonesia"
+            >
+              ID
+            </button>
+            <span className="text-slate-300">|</span>
+            <button
+              onClick={() => setLang('en')}
+              className={`px-2.5 py-1 rounded-md transition ${
+                lang === 'en'
+                  ? 'bg-white text-blue-600 shadow-sm font-extrabold'
+                  : 'hover:text-slate-900 text-slate-500'
+              }`}
+              title="English"
+            >
+              EN
+            </button>
+          </div>
 
           {/* Download CV Button */}
           <a

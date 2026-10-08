@@ -124,6 +124,9 @@ export default function ContactFooter({ lang, content }) {
             <a href="#skills" className="hover:text-blue-600 transition">
               {nav.skills}
             </a>
+            <a href="#experience" className="hover:text-blue-600 transition">
+              {content[lang].experience.title}
+            </a>
             <a href="#contact" className="hover:text-blue-600 transition">
               {nav.contact}
             </a>
