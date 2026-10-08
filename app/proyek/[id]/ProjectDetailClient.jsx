@@ -115,7 +115,75 @@ export default function ProjectDetailClient({ project, nextProject, prevProject 
             <span className="font-semibold">{project.documentMeta?.effectiveDate}</span>
           </div>
         </div>
+
+        {/* Action Buttons: PDF Download + WhatsApp */}
+        <div className="mt-6 pt-6 border-t border-white/20 flex flex-wrap items-center justify-between gap-4">
+          <div className="text-xs text-white/80">
+            {project.documentBundle && (
+              <span>Paket Terdiri dari: <strong>{project.documentBundle.length} Berkas Dokumen Resmi</strong></span>
+            )}
+          </div>
+
+          <div className="flex items-center gap-3">
+            {project.pdfUrl && (
+              <a
+                href={project.pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-white text-slate-900 hover:bg-blue-50 transition shadow-lg"
+              >
+                <BookOpen className="w-4 h-4 text-blue-600" />
+                <span>Buka / Unduh File PDF Resmi</span>
+              </a>
+            )}
+
+            <a
+              href={`https://wa.me/6281298023537?text=Halo%20Arrozy,%20saya%20tertarik%20dengan%20proyek%20${encodeURIComponent(project.title.id)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-white/20 hover:bg-white/30 text-white backdrop-blur-md border border-white/30 transition"
+            >
+              <MessageSquare className="w-3.5 h-3.5" />
+              <span>Diskusi Teknis</span>
+            </a>
+          </div>
+        </div>
       </div>
+
+      {/* Document Bundle List Banner */}
+      {project.documentBundle && (
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+          <div className="flex items-center justify-between gap-4">
+            <div>
+              <span className="text-xs font-bold text-blue-600 uppercase tracking-wider block">
+                STRUKTUR DELIVERABLE LENGKAP
+              </span>
+              <h3 className="text-lg font-bold text-slate-900 mt-0.5">
+                Paket Dokumen Tersusun dalam Proyek Ini
+              </h3>
+            </div>
+            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+              {project.documentBundle.length} Dokumen Resmi
+            </span>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-2">
+            {project.documentBundle.map((doc, idx) => (
+              <div
+                key={idx}
+                className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start gap-3 hover:border-blue-300 transition"
+              >
+                <span className="w-7 h-7 rounded-lg bg-blue-600 text-white font-mono font-bold text-xs flex items-center justify-center shrink-0">
+                  {idx + 1}
+                </span>
+                <span className="text-xs font-semibold text-slate-800 leading-snug">
+                  {doc}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Interactive Tabs Header */}
       <div className="bg-white rounded-2xl p-2 border border-slate-200 shadow-sm flex items-center gap-2 overflow-x-auto no-scrollbar">

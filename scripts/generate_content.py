@@ -1,4 +1,7 @@
-export const content = {
+# -*- coding: utf-8 -*-
+import json
+
+content_js = r'''export const content = {
   id: {
     nav: {
       brand: "Arrozy Adi Falaqi, S.Kom.",
@@ -1313,3 +1316,9 @@ export const featuredProjects = [
     },
   },
 ];
+'''
+
+with open(r'C:\Users\arroz\OneDrive\Dokumen\GitHub\portofolio-technical-writer\data\content.js', 'w', encoding='utf-8') as f:
+    f.write(content_js)
+
+print('Updated data/content.js with 10 real MST projects successfully!')

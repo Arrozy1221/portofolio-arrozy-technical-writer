@@ -39,7 +39,7 @@ export default function SkillsMatrix({ lang, content }) {
 
         {/* 4 Cards in 2x2 Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {t.groups.map((group, idx) => {
+          {(t.groups || t.categories || []).map((group, idx) => {
             const Icon = skillCategoryIcons[group.icon] || FileText;
             return (
               <div
