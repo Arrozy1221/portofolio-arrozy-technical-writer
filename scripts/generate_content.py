@@ -457,7 +457,7 @@ export const featuredProjects = [
     tags: ["Universitas Terbuka", "Laporan Awal & Akhir", "User Manual 240+ Hlm", "Kurikulum S2"],
     bannerGradient: "from-blue-600 to-indigo-700",
     bannerIcon: "graduation",
-    coverImage: "/images/projects/ut-panduan.png",
+    coverImage: "/images/projects/ut-workspace.png",
     pages: "3 Dokumen • 320+ Hlm",
     documentMeta: {
       docCode: "UT/MST-2026/KUR-S2/KAPRODI-3.0",
@@ -724,6 +724,7 @@ export const featuredProjects = [
     tags: ["Komdigi", "CAT Exam", "Laporan Progres", "User Manual Peserta & Admin"],
     bannerGradient: "from-purple-700 to-indigo-900",
     bannerIcon: "building",
+    coverImage: "/images/projects/simponi-dashboard.png",
     pages: "3 Dokumen • 95+ Hlm",
     documentMeta: {
       docCode: "KOMDIGI/MST-2026/CAT-SYS/V1.2",
@@ -1074,6 +1075,7 @@ export const featuredProjects = [
     tags: ["Baketrans Kemenhub", "SRS Spesifikasi", "Laporan Awal & Akhir", "Portal Kebijakan"],
     bannerGradient: "from-blue-700 to-slate-900",
     bannerIcon: "workflow",
+    coverImage: "/images/projects/simponi-dashboard.png",
     pages: "4 Dokumen • 210+ Hlm",
     documentMeta: {
       docCode: "BKT/MST-2026/SIBIJAK-PLD/SRS",

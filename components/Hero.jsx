@@ -85,86 +85,58 @@ export default function Hero({ lang, content }) {
             </div>
           </div>
 
-          {/* Right Column: Sleek Laptop Display with 3D Floating Glass Icons (5 Cols) */}
-          <div className="lg:col-span-5 relative flex justify-center items-center">
-            {/* Floating 3D Icon 1 (Top Left): Book / Manual */}
-            <div className="absolute -top-3 left-4 z-20 w-12 h-12 rounded-2xl bg-blue-600/90 text-white flex items-center justify-center shadow-lg shadow-blue-600/30 backdrop-blur-md transform -rotate-6 animate-bounce duration-1000">
-              <BookOpen className="w-6 h-6" />
-            </div>
+          {/* Right Column: High-End 3D Laptop Workspace with Floating 3D Glass Icons (5 Cols) */}
+          <div className="lg:col-span-5 relative flex justify-center items-center pt-6 lg:pt-0">
+            {/* Ambient Back Glow */}
+            <div className="absolute inset-0 bg-blue-500/10 rounded-3xl blur-2xl transform scale-95 pointer-events-none"></div>
 
-            {/* Floating 3D Icon 2 (Middle Left): Document */}
-            <div className="absolute top-24 -left-3 z-20 w-12 h-12 rounded-2xl bg-white border border-blue-200 text-blue-600 flex items-center justify-center shadow-xl backdrop-blur-md transform rotate-3">
-              <FileText className="w-6 h-6" />
-            </div>
-
-            {/* Floating 3D Icon 3 (Bottom Left): Settings / Engineering */}
-            <div className="absolute bottom-10 left-2 z-20 w-12 h-12 rounded-2xl bg-blue-500 text-white flex items-center justify-center shadow-lg shadow-blue-500/30 transform -rotate-3">
-              <Settings className="w-6 h-6" />
-            </div>
-
-            {/* Laptop Mockup Device */}
-            <div className="relative w-full max-w-[460px] perspective-1000">
-              {/* Laptop Screen Body */}
-              <div className="rounded-2xl border-4 border-slate-800 bg-slate-900 p-2 shadow-2xl">
-                {/* Screen Top Bezel with Camera */}
-                <div className="h-4 bg-slate-900 flex items-center justify-center mb-1">
-                  <div className="w-1.5 h-1.5 rounded-full bg-slate-700"></div>
-                </div>
-
-                {/* Inside Screen: Live Technical Docs / Code Editor */}
-                <div className="rounded-lg bg-slate-950 p-4 font-mono text-xs text-slate-300 space-y-2.5 overflow-hidden shadow-inner">
-                  <div className="flex items-center justify-between pb-2 border-b border-slate-800 text-[10px] text-slate-400">
-                    <span className="text-blue-400">Technical-Documentation.ts</span>
-                    <span className="text-emerald-400">● Verified</span>
-                  </div>
-
-                  <div className="space-y-1 text-[11px] leading-relaxed">
-                    <div className="text-slate-500">// Technical Documentation Specialist</div>
-                    <div>
-                      <span className="text-purple-400">interface</span>{' '}
-                      <span className="text-yellow-300">CleanDocumentation</span> &#123;
-                    </div>
-                    <div className="pl-4 text-blue-300">
-                      userManual: <span className="text-emerald-400">boolean</span>;
-                    </div>
-                    <div className="pl-4 text-blue-300">
-                      sopStandard: <span className="text-emerald-400">boolean</span>;
-                    </div>
-                    <div className="pl-4 text-blue-300">
-                      trainingModule: <span className="text-emerald-400">boolean</span>;
-                    </div>
-                    <div className="pl-4 text-blue-300">
-                      systemArchitecture: <span className="text-emerald-400">boolean</span>;
-                    </div>
-                    <div>&#125;</div>
-
-                    <div className="pt-2 text-slate-500">// Better User Experience</div>
-                    <div>
-                      <span className="text-purple-400">function</span>{' '}
-                      <span className="text-blue-400">createDocumentation</span>():{' '}
-                      <span className="text-yellow-300">CleanDocumentation</span> &#123;
-                    </div>
-                    <div className="pl-4 text-purple-400">
-                      return &#123;
-                    </div>
-                    <div className="pl-8 text-blue-300">
-                      clear: <span className="text-yellow-400">true</span>,
-                    </div>
-                    <div className="pl-8 text-blue-300">
-                      easyToRead: <span className="text-yellow-400">true</span>,
-                    </div>
-                    <div className="pl-8 text-blue-300">
-                      stepByStep: <span className="text-yellow-400">true</span>,
-                    </div>
-                    <div className="pl-4">&#125;;</div>
-                    <div>&#125;</div>
-                  </div>
-                </div>
+            {/* Floating 3D Icon 1 (Top Left): Manual Handbook */}
+            <div className="absolute -top-6 -left-4 sm:-top-8 sm:-left-6 z-20 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/95 p-1.5 shadow-2xl border border-blue-100/80 backdrop-blur-md transform -rotate-6 hover:rotate-0 hover:scale-110 transition-all duration-300">
+              <div className="relative w-full h-full rounded-xl overflow-hidden shadow-inner">
+                <Image
+                  src="/images/floating-book.png"
+                  alt="3D Buku Panduan"
+                  fill
+                  className="object-cover"
+                />
               </div>
+            </div>
 
-              {/* Laptop Keyboard Base */}
-              <div className="h-4 bg-slate-700 rounded-b-xl border-t border-slate-600 shadow-md flex justify-center">
-                <div className="w-16 h-1 bg-slate-500 rounded-full mt-1"></div>
+            {/* Floating 3D Icon 2 (Top Right): Glowing Verified Document */}
+            <div className="absolute -top-4 -right-3 sm:-top-6 sm:-right-5 z-20 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/95 p-1.5 shadow-2xl border border-blue-100/80 backdrop-blur-md transform rotate-6 hover:rotate-0 hover:scale-110 transition-all duration-300">
+              <div className="relative w-full h-full rounded-xl overflow-hidden shadow-inner">
+                <Image
+                  src="/images/floating-document.png"
+                  alt="3D Dokumen Terverifikasi"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Floating 3D Icon 3 (Bottom Left): Glossy Tech Gear */}
+            <div className="absolute -bottom-5 -left-3 sm:-bottom-7 sm:-left-5 z-20 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/95 p-1.5 shadow-2xl border border-blue-100/80 backdrop-blur-md transform rotate-3 hover:rotate-0 hover:scale-110 transition-all duration-300">
+              <div className="relative w-full h-full rounded-xl overflow-hidden shadow-inner">
+                <Image
+                  src="/images/floating-gear.png"
+                  alt="3D Konfigurasi Sistem"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Main Visual: 3D Laptop Workspace Illustration */}
+            <div className="relative w-full rounded-3xl overflow-hidden border border-slate-200/90 bg-white shadow-2xl p-2 sm:p-3 group">
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-950 shadow-inner">
+                <Image
+                  src="/images/hero-laptop.png"
+                  alt="Modern Documentation Workspace"
+                  fill
+                  priority
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none"></div>
               </div>
             </div>
           </div>
