@@ -901,6 +901,7 @@ export const featuredProjects = [
     tags: ["BBPPT Komdigi", "SIMPEL NG", "KAK & Kontrak", "Laporan Bulanan"],
     bannerGradient: "from-cyan-700 to-blue-900",
     bannerIcon: "building",
+    coverImage: "/images/projects/ut-panduan.png",
     pages: "3 Dokumen • 120+ Hlm",
     documentMeta: {
       docCode: "BBPPT/MST-2026/SIMPEL-NG/MAINT",
@@ -988,6 +989,7 @@ export const featuredProjects = [
     tags: ["Komdigi", "SMART System", "KAK Pemeliharaan", "Laporan Bulanan"],
     bannerGradient: "from-slate-700 to-indigo-900",
     bannerIcon: "building",
+    coverImage: "/images/projects/ut-laporan-akhir.png",
     pages: "3 Dokumen • 80+ Hlm",
     documentMeta: {
       docCode: "KOMDIGI/MST-2026/SMART-MAINT/TA26",
@@ -1075,7 +1077,7 @@ export const featuredProjects = [
     tags: ["Baketrans Kemenhub", "SRS Spesifikasi", "Laporan Awal & Akhir", "Portal Kebijakan"],
     bannerGradient: "from-blue-700 to-slate-900",
     bannerIcon: "workflow",
-    coverImage: "/images/projects/simponi-dashboard.png",
+    coverImage: "/images/projects/sibijak-dashboard.png",
     pages: "4 Dokumen • 210+ Hlm",
     documentMeta: {
       docCode: "BKT/MST-2026/SIBIJAK-PLD/SRS",
@@ -1162,6 +1164,7 @@ export const featuredProjects = [
     tags: ["Kementerian PUPR", "INSI-PLANT", "User Manual (.pdf 20MB)", "AMP & Batching Plant"],
     bannerGradient: "from-amber-600 to-orange-800",
     bannerIcon: "workflow",
+    coverImage: "/images/projects/insi-plant-cover.png",
     pdfUrl: "/docs/Manual-Penggunaan-INSI-PLANT-PUPR.pdf",
     pages: "3 Dokumen • 185+ Hlm",
     documentMeta: {

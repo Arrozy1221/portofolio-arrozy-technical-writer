@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
     --bg-base: #f8fafc;
     --bg-card: #ffffff;
     --border-base: #e2e8f0;
@@ -21,12 +25,20 @@
     --accent: #38bdf8;
   }
 
+  *, html, body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  }
+
   body {
     background-color: var(--bg-base);
     color: var(--text-primary);
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+  }
+
+  code, pre, kbd {
+    font-family: 'JetBrains Mono', monospace !important;
   }
 }
 

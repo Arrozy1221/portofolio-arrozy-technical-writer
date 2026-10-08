@@ -96,46 +96,46 @@ export default function ProjectShowcase({ lang, content }) {
                 className="rounded-3xl border border-slate-200/90 bg-white overflow-hidden shadow-sm hover:shadow-xl hover:border-blue-300 transition-all flex flex-col justify-between group"
               >
                 <div>
-                  {/* Visual Top Banner with Link */}
+                  {/* Visual Top Banner with Full Crisp Image */}
                   <Link
                     href={projectUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`h-48 bg-gradient-to-br ${project.bannerGradient} relative p-6 flex items-center justify-center overflow-hidden block`}
+                    className="h-56 sm:h-60 w-full relative overflow-hidden bg-slate-100 block group/banner"
                   >
-                    {/* Background subtle geometry */}
-                    <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
-
-                    {/* If Cover Image exists, show it with overlay */}
-                    {project.coverImage ? (
-                      <div className="absolute inset-0 z-0 opacity-40 group-hover:opacity-50 transition-opacity">
-                        <Image
-                          src={project.coverImage}
-                          alt={project.title[lang]}
-                          fill
-                          className="object-cover object-top"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                      </div>
-                    ) : null}
-
-                    {/* Floating Center Icon */}
-                    <div className="relative z-10 w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      <Icon className="w-10 h-10" />
+                    {/* Full Image Display - 100% Brightness & Zero Obstructive Tint */}
+                    <div className="absolute inset-0 z-0">
+                      <Image
+                        src={project.coverImage || '/images/hero-laptop.png'}
+                        alt={project.title[lang]}
+                        fill
+                        className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
 
-                    {/* Top right quick preview pill */}
-                    <div className="absolute top-3 right-3 z-10">
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/20 backdrop-blur-md text-white border border-white/20">
-                        <ExternalLink className="w-3 h-3" />
-                        <span>Tab Baru</span>
+                    {/* Subtle bottom shadow gradient strictly for readability of badges */}
+                    <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/50 via-black/15 to-transparent pointer-events-none z-10"></div>
+
+                    {/* Top Left: Client Pill Badge */}
+                    <div className="absolute top-3.5 left-3.5 z-20">
+                      <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-white/95 text-slate-900 shadow-md backdrop-blur-md border border-white/60">
+                        {project.client}
                       </span>
                     </div>
 
-                    {/* Bottom banner label */}
-                    <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-[11px] font-mono text-white/95 z-10">
-                      <span className="font-semibold truncate max-w-[65%]">{project.client}</span>
-                      <span className="bg-black/40 px-2 py-0.5 rounded text-[10px] font-medium">{project.pages}</span>
+                    {/* Top Right: Buka Tab Baru Action Pill */}
+                    <div className="absolute top-3.5 right-3.5 z-20">
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-md backdrop-blur-md transition-colors">
+                        <span>Tab Baru</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </span>
+                    </div>
+
+                    {/* Bottom Right: Page Volume Tag */}
+                    <div className="absolute bottom-3 right-3.5 z-20">
+                      <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-slate-900/85 text-white backdrop-blur-md border border-white/10 shadow-sm">
+                        {project.pages}
+                      </span>
                     </div>
                   </Link>
 
